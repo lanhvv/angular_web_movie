@@ -1,0 +1,28 @@
+<!-- {{input.errors | json}} -->
+<!-- {{input.value | json}} -->
+<div *ngIf="!input?.valid && (input?.dirty || input?.touched)" class="message-validator">
+    <div *ngIf="input?.errors?.required">
+        Bắt buộc phải nhập {{name}}
+    </div>
+    <div *ngIf="input?.errors?.min">
+        Giá trị nhỏ nhất là {{input?.errors?.min?.min}}
+    </div>
+    <div *ngIf="input?.errors?.max">
+        Giá trị lớn nhất là  {{input?.errors?.max?.max | number:'1.0-0'}}
+    </div>
+    <div *ngIf="input?.errors?.email">
+        Email không hợp lệ
+    </div>
+    <div *ngIf="input?.errors?.maxlength">
+        Tối đa ký tự là {{input?.errors?.maxlength?.requiredLength}}
+    </div>
+    <div *ngIf="input?.errors?.minlength">
+        Tối thiểu ký tự là {{input?.errors?.minlength?.requiredLength}}
+    </div>
+    <div *ngIf="input?.errors?.pattern">
+        {{name}} Không đúng định dạng   
+    </div>
+    <div *ngIf="input?.errors?.image">
+        Ảnh không đúng định danh PNG, JPG,GIF
+    </div>
+</div>

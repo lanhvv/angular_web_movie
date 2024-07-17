@@ -1,0 +1,31 @@
+<div class="body">
+    <div [formGroup]="this.formGroup"  class="form-login">
+        <h2>Đăng nhập</h2>
+        <form novalidate>
+            <div>
+                <div><label for="email">Email</label></div>
+                <input
+                  id="email"
+                  type="text"
+                  pInputText
+                  placeholder="Nhập email"
+                  formControlName="email"
+                />
+              <app-message-validate name="email" [input]='this.getControl("email")'></app-message-validate>
+            </div>
+            <div>
+                <div><label for="password">Mật khẩu</label></div>
+                <p-password
+                  id="password"
+                  [feedback]="false"
+                  [placeholder]='"Nhập mật khẩu"'
+                  [toggleMask]="true"
+                  formControlName="password"></p-password>
+                <app-message-validate name="password" [input]='this.getControl("password")'></app-message-validate>
+            </div>
+            <div>
+                <p-button label="Đăng nhập" (click)="this.login()"></p-button>
+            </div>
+        </form>
+    </div>
+</div>
