@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {PathConstant} from "./core/utils/path.constant";
 import {RoleAdminCacActiveChildGuard} from "./core/guard/role-admin-cac-active-child.guard";
 import {RoleUserCanActiveChildGuard} from "./core/guard/role-user-can-active-child.guard";
+import {NotFoundComponent} from "./shared/components/not-found/not-found.component";
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
     path: PathConstant.ROOT_USER,
     canActivateChild: [RoleUserCanActiveChildGuard],
     loadChildren: () => import("./features/user/user.module").then(m => m.UserModule)
+  },
+  {
+    path: "**",
+    component: NotFoundComponent
   }
 ];
 

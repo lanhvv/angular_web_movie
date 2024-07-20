@@ -1,0 +1,120 @@
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  /*align-items: start;*/
+}
+
+.menu {
+  width: 20%;
+  height: 100%
+}
+
+.content {
+  width: 80%;
+  height: 100%
+}
+
+::ng-deep .p-megamenu {
+  border: 0px;
+  border-radius: 0px;
+  background: linear-gradient(130deg, #ff7e00, #ffffff, #5cff00);
+  background-size: 400% 400%;
+  -webkit-animation: Animation 5s ease infinite;
+  -moz-animation: Animation 5s ease infinite;
+  animation: Animation 5s ease infinite;
+  display: inline-block;
+}
+
+@-webkit-keyframes Animation {
+  0%{background-position:10% 0%}
+  50%{background-position:91% 100%}
+  100%{background-position:10% 0%}
+}
+@-moz-keyframes Animation {
+  0%{background-position:10% 0%}
+  50%{background-position:91% 100%}
+  100%{background-position:10% 0%}
+}
+@keyframes Animation {
+  0%{background-position:10% 0%}
+  50%{background-position:91% 100%}
+  100%{background-position:10% 0%}
+}
+
+::ng-deep .p-megamenu-vertical {
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+}
+
+::ng-deep .p-megamenu-start > img {
+  margin: 2% 45%;
+}
+
+:host ::ng-deep .p-megamenu {
+  /*background: #0da350 !important;*/
+}
+:host
+::ng-deep
+.p-megamenu
+.p-megamenu-root-list
+> .p-menuitem.p-menuitem-active
+> .p-menuitem-link,
+.p-megamenu
+.p-megamenu-root-list
+> .p-menuitem.p-menuitem-active
+> .p-menuitem-link:not(.p-disabled):hover {
+  background: #0da350 !important;
+}
+:host
+::ng-deep
+.p-megamenu
+.p-megamenu-root-list
+> .p-menuitem
+> .p-menuitem-link:not(.p-disabled):hover {
+  background: #0da350 !important;
+}
+:host
+::ng-deep
+.p-megamenu
+.p-megamenu-root-list
+> .p-menuitem
+> .p-menuitem-link
+.p-menuitem-icon {
+  color: #fff !important;
+}
+:host
+::ng-deep
+.p-megamenu
+.p-megamenu-root-list
+> .p-menuitem
+> .p-menuitem-link
+.p-menuitem-text {
+  color: #fff !important;
+}
+:host
+::ng-deep
+.p-megamenu
+.p-megamenu-root-list
+> .p-menuitem
+> .p-menuitem-link
+.p-submenu-icon {
+  color: #fff !important;
+}
+:host ::ng-deep .p-megamenu .p-menuitem-link:focus {
+  box-shadow: inset 0 0 0 0.15rem #0da350 !important;
+}
+:host ::ng-deep .p-megamenu .p-menuitem-link:not(.p-disabled):hover {
+  background: #0da350 !important;
+  border-radius: 5px;
+}
+:host
+::ng-deep
+.p-megamenu
+.p-menuitem-link:not(.p-disabled):hover
+.p-menuitem-text {
+  color: #fff !important;
+}
+
+

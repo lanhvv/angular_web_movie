@@ -38,22 +38,27 @@ export class LoginComponent implements OnInit{
   public login() {
     if (this.formGroup.valid) {
       this.authenticationService.login(this.getControl("email")?.value, this.getControl("password")?.value)
-        .subscribe((model: LoginModel) => {
-            this.accountService.storageAccount(model);
-            this.jwtAuthentication.storageToken(model.token);
-            let isManager = false;
-            for (let role of model.roles.keys()) {
-              if (role == CommonConstant.ADMIN || role == CommonConstant.SYSTEM) {
-                isManager = true;
-              }
-            }
+        .subscribe(
+          (model: LoginModel) => {
+              this.accountService.storageAccount(model);
+              this.jwtAuthentication.storageToken(model.token);
+              let isManager = false;
+              model.roles.forEach(role => {
+                  if (role.slug == CommonConstant.ADMIN || role.slug == CommonConstant.SYSTEM) {
+                    isManager = true;
+                  }
+              });
 
-            if (isManager) {
-              this.router.navigate([PathConstant.ROOT_ADMIN, PathConstant.DASH_BROAD]);
-            } else {
-              this.router.navigate([PathConstant.ROOT_USER, PathConstant.HOME_PAGE]);
-            }
-        });
+              if (isManager) {
+                this.router.navigate([PathConstant.ROOT_ADMIN, PathConstant.DASH_BROAD]);
+              } else {
+                this.router.navigate([PathConstant.ROOT_USER, PathConstant.HOME_PAGE]);
+              }
+          },
+          (error: any) => {
+            debugger
+          }
+        );
     }
   }
 }

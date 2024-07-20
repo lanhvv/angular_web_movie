@@ -5,6 +5,7 @@ import {AccountService} from "../auth/account.service";
 import {CommonConstant} from "../utils/common.constant";
 import {PathConstant} from "../utils/path.constant";
 import {JwtAuthenticationService} from "../auth/jwt-authentication.service";
+import {RoleModel} from "../models/role.model";
 
 @Injectable({providedIn:'root'})
 export class RoleUserCanActiveChildGuard implements CanActivateChild{
@@ -18,11 +19,11 @@ export class RoleUserCanActiveChildGuard implements CanActivateChild{
   canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const account = this.accountService.retrieveAccount();
     let isUser = false;
-    for (let role of account.roles.keys()) {
-      if (CommonConstant.USER == role) {
+    account.roles.forEach((role: RoleModel) => {
+      if (role.slug == CommonConstant.USER) {
         isUser = true;
       }
-    }
+    });
     if (isUser) {
       return true;
     }
