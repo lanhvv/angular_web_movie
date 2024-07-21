@@ -1,0 +1,26 @@
+.content {
+  min-height: 400px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.title ::ng-deep .pi {
+  font-size: 10px;
+}
+
+::ng-deep .p-button.p-button-icon-only.p-button-rounded {
+  height: 2rem;
+}
+
+::ng-deep .p-button.p-button-icon-only {
+  width: 2rem;
+}

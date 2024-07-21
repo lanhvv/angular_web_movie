@@ -1,8 +1,41 @@
 <div class="main">
   <div class="menu">
-
+      <div class="logo"></div>
+      <ul>
+        <ng-container *ngFor="let item of this.paths">
+          <li [routerLink]='item.path' [routerLinkActive]="'active'">
+            {{item.name}}
+          </li>
+        </ng-container>
+      </ul>
   </div>
   <div class="content">
-    <router-outlet></router-outlet>
+    <div class="header">
+      <div></div>
+      <div class="info-user" (click)="op.toggle($event)">
+        <div>
+          <p>Lanhvv</p>
+          <p>Admin</p>
+        </div>
+        <div>
+          <p-avatar
+            label="P"
+            styleClass="mr-2"
+            size="normal"
+            [style]="{ 'background-color': '#2196F3', color: '#ffffff' }"
+          ></p-avatar>
+        </div>
+      </div>
+    </div>
+    <div class="body-content">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
+
+<p-overlayPanel #op>
+  <ul class="op">
+    <li>Thông tin</li>
+    <li>Đăng xuất</li>
+  </ul>
+</p-overlayPanel>

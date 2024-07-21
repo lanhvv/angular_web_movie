@@ -1,0 +1,36 @@
+<h1>Danh Sách Phim</h1>
+<div  class="content">
+  <div class="content-child-1">
+    <h3>Danh Sách Phim</h3>
+    <p-button label="Thêm mới" [routerLink]='["../",PathConstant.CAU]'></p-button>
+  </div>
+<!--  [value]="customers"-->
+<!--  (onPage)="pageChange($event)"-->
+  <div class="content-child-2">
+    <p-table
+      [paginator]="true"
+      [rows]="10"
+      [showCurrentPageReport]="true"
+      [tableStyle]="{ 'min-width': '50rem' }"
+      currentPageReportTemplate=""
+      [rowsPerPageOptions]="[10, 25, 50]"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th style="width:25%">Name</th>
+          <th style="width:25%">Country</th>
+          <th style="width:25%">Company</th>
+          <th style="width:25%">Representative</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-customer>
+        <tr>
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.country.name }}</td>
+          <td>{{ customer.company }}</td>
+          <td>{{ customer.representative.name }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

@@ -2,5 +2,13 @@
 body {
     margin: 0;
     height: 100vh;
-    font-family: Poppins;
+    font-family: "Roboto", sans-serif;
+}
+
+:root {
+  --color-main1: #5670E9;
+  --color-main2: #84CEEB;
+  --color-main3: #5AB9EA;
+  --color-main4: #C1C8E4;
+  --color-main5: #8860D0;
 }
