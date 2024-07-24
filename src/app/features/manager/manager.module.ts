@@ -14,8 +14,11 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
 import { CreateAndUpdateComponent } from './movie/create-and-update/create-and-update.component';
 import { ListMovieComponent } from './movie/list-movie/list-movie.component';
 import { ButtonModule } from 'primeng/button';
-import { TableModule } from 'primeng/table';
-
+import {SharedModule} from "../../shared/shared.module";
+import { CalendarModule } from 'primeng/calendar';
+import {ReactiveFormsModule} from "@angular/forms";
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
 @NgModule({
   declarations: [
     ManagerComponent,
@@ -34,7 +37,11 @@ import { TableModule } from 'primeng/table';
     AvatarModule,
     AvatarGroupModule,
     ButtonModule,
-    TableModule
+    SharedModule,
+    CalendarModule,
+    ReactiveFormsModule,
+    DropdownModule,
+    InputTextModule
   ]
 })
 export class ManagerModule { }

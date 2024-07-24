@@ -24,3 +24,29 @@
 ::ng-deep .p-button.p-button-icon-only {
   width: 2rem;
 }
+
+.td-table {
+  text-align: center;
+}
+
+.op-filter-apii {
+  width: 1000px;
+  min-height: 50px;
+  padding: 15px;
+}
+
+.op-filter-apii > form {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.op-filter-apii > form > div {
+  width: 28%;
+  padding: 5px;
+}
+
+.op-filter-apii > form ::ng-deep .p-dropdown {
+  width: 100%;
+}

@@ -2,19 +2,91 @@
 <div class="content">
   <ng-container
     [ngTemplateOutlet]="title"
-    [ngTemplateOutletContext]='{name: "Danh sách phim từ nguồn K", form: ""}'
+    [ngTemplateOutletContext]='{name: "Danh sách phim từ nguồn C", form: ""}'
   ></ng-container>
+  <app-common-table
+    [list]="this.moviesFromAppiNguonC"
+    [header]="this.headerMovieFromAppi"
+    [pageChange]="this.pageChangeApii()"
+    [totalItems]="this.totalItems"
+    [lazy] = "true"
+  >
+    <ng-template let-item="item">
+      <tr>
+        <td class="td-table"><img [src]="HostConstant.APPI_IMG + item.thumb_url" width="60" height="80"></td>
+        <td class="td-table">{{item.name}}</td>
+        <td class="td-table">{{item.year}}</td>
+        <td class="td-table">{{item.episode_total}}</td>
+        <td class="td-table">{{item.episode_current}}</td>
+        <td class="td-table"><p-button icon="pi pi-caret-down" [rounded]="true" (click)="this.addMovieFetch(item)"></p-button></td>
+      </tr>
+    </ng-template>
+  </app-common-table>
 </div>
 <div class="content">
   <ng-container
     [ngTemplateOutlet]="title"
-    [ngTemplateOutletContext]='{name: "Danh sách phim đã chọn", form: ""}'
+    [ngTemplateOutletContext]='{name: "Danh sách phim đã chọn", form: null}'
   ></ng-container>
+  <app-common-table
+    [list]="this.moviesFetchArr"
+    [header]="this.headerMovieFromAppi"
+    [totalItems]="this.moviesFetchArr.length"
+  >
+    <ng-template let-item="item" let-index="index">
+      <tr>
+        <td class="td-table"><img [src]="HostConstant.APPI_IMG + item.thumb_url" width="60" height="80"></td>
+        <td class="td-table">{{item.name}}</td>
+        <td class="td-table">{{item.year}}</td>
+        <td class="td-table">{{item.episode_total}}</td>
+        <td class="td-table">{{item.episode_current}}</td>
+        <td class="td-table"><p-button severity="danger" icon="pi pi-times" [rounded]="true" (click)="this.removeMovieFetch(index)"></p-button></td>
+      </tr>
+    </ng-template>
+  </app-common-table>
 </div>
 
 <ng-template #title let-name="name" let-form="form">
   <div class="title">
     <h3>{{name}}</h3>
-    <p-button icon="pi pi-filter" [rounded]="true"></p-button>
+    <p-button *ngIf="form != null" icon="pi pi-filter" [rounded]="true" (click)="op_filter_apii.toggle($event)"></p-button>
   </div>
 </ng-template>
+
+<p-overlayPanel #op_filter_apii [showCloseIcon]="true">
+  <div class="op-filter-apii">
+    <form [formGroup]="this.formAppiNguonC">
+      <div>
+        <div>
+          <label>Năm</label>
+        </div>
+        <p-calendar formControlName="year" view="year" dateFormat="yy" inputId="yearpicker"></p-calendar>
+      </div>
+      <div>
+        <div>
+          <label>Loại Phim</label>
+        </div>
+        <p-dropdown formControlName="type" optionLabel="name" [showClear]="true" placeholder="Chọn loại phim"></p-dropdown>
+      </div>
+      <div>
+        <div>
+          <label>Thể Loại</label>
+        </div>
+        <p-dropdown formControlName="category" optionLabel="name" [showClear]="true" placeholder="Chọn thể loại"></p-dropdown>
+      </div>
+      <div>
+        <div>
+          <label>Tên Phim</label>
+        </div>
+        <input type="text" pInputText formControlName="search" />
+      </div>
+      <div>
+        <div>
+          <label>Quốc Gia</label>
+        </div>
+        <p-dropdown formControlName="country" optionLabel="name" [showClear]="true" placeholder="Chọn quốc gia"></p-dropdown>
+      </div>
+      <div></div>
+    </form>
+  </div>
+</p-overlayPanel>
