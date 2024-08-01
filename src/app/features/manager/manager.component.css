@@ -62,11 +62,11 @@
   align-items: center;
   justify-content: space-around;
   background-color: rgba(255, 255, 255, 0.99);
-  z-index: 99999;
+  z-index: 999;
 }
 
 ::ng-deep .p-overlaypanel {
-  z-index: 99999 !important;
+  z-index: 999 !important;
 }
 
 .header > .info-user {

@@ -1,9 +1,10 @@
+<app-toast-notify [config]="this.bodyToast"></app-toast-notify>
 <h1>{{this.name}}</h1>
 <div class="content">
-  <ng-container
-    [ngTemplateOutlet]="title"
-    [ngTemplateOutletContext]='{name: "Danh sách phim từ nguồn C", form: ""}'
-  ></ng-container>
+  <div class="title">
+    <h3>Danh sách phim từ nguồn C</h3>
+    <p-button  icon="pi pi-filter" [rounded]="true" (click)="op_filter_apii.toggle($event)"></p-button>
+  </div>
   <app-common-table
     [list]="this.moviesFromAppiNguonC"
     [header]="this.headerMovieFromAppi"
@@ -24,10 +25,10 @@
   </app-common-table>
 </div>
 <div class="content">
-  <ng-container
-    [ngTemplateOutlet]="title"
-    [ngTemplateOutletContext]='{name: "Danh sách phim đã chọn", form: null}'
-  ></ng-container>
+  <div class="title">
+    <h3>Danh sách phim đã chọn</h3>
+    <p-button  icon="pi pi-cloud-download" [rounded]="true" (click)="this.createMovieFetch()"></p-button>
+  </div>
   <app-common-table
     [list]="this.moviesFetchArr"
     [header]="this.headerMovieFromAppi"
@@ -46,12 +47,6 @@
   </app-common-table>
 </div>
 
-<ng-template #title let-name="name" let-form="form">
-  <div class="title">
-    <h3>{{name}}</h3>
-    <p-button *ngIf="form != null" icon="pi pi-filter" [rounded]="true" (click)="op_filter_apii.toggle($event)"></p-button>
-  </div>
-</ng-template>
 
 <p-overlayPanel #op_filter_apii [showCloseIcon]="true">
   <div class="op-filter-apii">

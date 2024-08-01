@@ -4,6 +4,9 @@ import {ApiiNguoncService} from "../../../../core/services/apii-nguonc.service";
 import {FormControl, FormGroup} from "@angular/forms";
 import {ParamAppiModel} from "../../../../core/models/param-appi.model";
 import {HostConstant} from "../../../../core/utils/host.constant";
+import {MovieService} from "../../../../core/services/movie.service";
+import {ToastNotifyComponent} from "../../../../shared/components/toast-notify/toast-notify.component";
+import {CommonConstant} from "../../../../core/utils/common.constant";
 
 @Component({
   selector: 'app-create-and-update',
@@ -19,9 +22,13 @@ export class CreateAndUpdateComponent implements OnInit{
   public headerMovieFromAppi !: any[];
   public totalItems : number = 100;
 
+  //toast-messsage
+  public bodyToast: any;
+
   constructor(
     private routerActive: ActivatedRoute,
-    private apiiNguoncService: ApiiNguoncService
+    private apiiNguoncService: ApiiNguoncService,
+    private movieService: MovieService
   ) {
     this.headerMovieFromAppi = ["","Tên Phim", "Năm", "Tổng Số Tập", "Tập Hiện Tại", "Thao tác"];
     this.moviesFetchArr = [];
@@ -59,7 +66,6 @@ export class CreateAndUpdateComponent implements OnInit{
       (data: any) => {
       this.moviesFromAppiNguonC = data?.items ?? [];
       this.totalItems = data?.pagination?.totalItems ?? 100;
-      debugger;
     },
     (error: any) => {
       console.error("Lỗi lấy dữ liệu từ Appi Nguồn C")
@@ -87,8 +93,27 @@ export class CreateAndUpdateComponent implements OnInit{
   }
 
   public removeMovieFetch(index: number) {
-    debugger
     this.moviesFetchArr.splice(index, 1);
   }
 
+  public createMovieFetch() {
+    const slugs = this.moviesFetchArr.map((x: any) => x?.slug);
+    this.movieService.createMovie(slugs).subscribe(
+      (response: any) => {
+        this.moviesFetchArr = [];
+        this.bodyToast = {
+          severity: CommonConstant.SUCCESS,
+          summary: "Thành công",
+          detail: "Thêm mới thành công"
+        }
+      },
+      (error: any) => {
+        this.bodyToast = {
+          severity: CommonConstant.ERROR,
+          summary: "Thất bại",
+          detail: "Thêm mới không thành công"
+        }
+      }
+    );
+  }
 }
