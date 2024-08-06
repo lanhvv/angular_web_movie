@@ -11,6 +11,6 @@ export class MovieService {
   readonly path = "movie/";
 
   public createMovie(slugs: string[]) : Observable<any> {
-    return  this.httpClient.put(HostConstant.BE + HostConstant + this.path + "create", {slugs : slugs});
+    return  this.httpClient.post(HostConstant.BE + HostConstant + this.path + "create", {slugs : slugs});
   }
 }
