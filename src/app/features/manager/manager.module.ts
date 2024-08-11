@@ -19,6 +19,8 @@ import { CalendarModule } from 'primeng/calendar';
 import {ReactiveFormsModule} from "@angular/forms";
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
+import {AddTokenInterceptor} from "../../core/interceptor/add-token.interceptor";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
 @NgModule({
   declarations: [
     ManagerComponent,
@@ -42,6 +44,9 @@ import { InputTextModule } from 'primeng/inputtext';
     ReactiveFormsModule,
     DropdownModule,
     InputTextModule
+  ],
+  providers: [
+
   ]
 })
 export class ManagerModule { }

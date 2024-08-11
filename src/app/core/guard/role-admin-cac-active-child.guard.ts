@@ -20,13 +20,9 @@ export class RoleAdminCacActiveChildGuard implements CanActivateChild{
   canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const account = this.accountService.retrieveAccount();
     let isManager = false;
-    let isUser = false;
     account.roles.forEach((role: RoleModel) => {
       if (role.slug == CommonConstant.ADMIN || role.slug == CommonConstant.SYSTEM) {
         isManager = true;
-      }
-      if (role.slug == CommonConstant.USER) {
-        isUser = true;
       }
     });
     if (isManager) {
