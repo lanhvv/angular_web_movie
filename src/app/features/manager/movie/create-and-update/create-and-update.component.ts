@@ -19,7 +19,10 @@ export class CreateAndUpdateComponent implements OnInit{
     private routerActive: ActivatedRoute,
     private movieService: MovieService
   ) {
-    this.movieService.createMovie().subscribe((x: any) => console.log("hehhe"));
+    this.movieService.createMovie().subscribe(
+      (x: any) => {console.log("hehhe")},
+      (x: any) => {console.log(JSON.stringify(x))}
+    );
   }
 
   ngOnInit(): void {
