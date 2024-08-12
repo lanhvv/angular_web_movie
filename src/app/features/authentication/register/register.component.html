@@ -1,1 +1,53 @@
-<p>register works!</p>
+<app-toast-notify [config]="this.bodyToast"></app-toast-notify>
+<div class="body">
+  <div [formGroup]="this.formGroup"  class="form-login">
+    <h2>Đăng nhập</h2>
+    <form novalidate>
+      <div>
+        <div><label for="name">Tên</label></div>
+        <input
+          id="name"
+          type="text"
+          pInputText
+          placeholder="Nhập tên"
+          formControlName="name"
+        />
+        <app-message-validate name="Tên" [input]='this.getControl("name")'></app-message-validate>
+      </div>
+      <div>
+        <div><label for="email">Email</label></div>
+        <input
+          id="email"
+          type="text"
+          pInputText
+          placeholder="Nhập email"
+          formControlName="email"
+        />
+        <app-message-validate name="Email" [input]='this.getControl("email")'></app-message-validate>
+      </div>
+      <div>
+        <div><label for="password">Mật khẩu</label></div>
+        <p-password
+          id="password"
+          [feedback]="false"
+          [placeholder]='"Nhập mật khẩu"'
+          [toggleMask]="true"
+          formControlName="password"></p-password>
+        <app-message-validate name="Mật khẩu" [input]='this.getControl("password")'></app-message-validate>
+      </div>
+      <div>
+        <div><label for="password">Xác nhận mật khẩu</label></div>
+        <p-password
+          id="rePassword"
+          [feedback]="false"
+          [placeholder]='"Nhập lại mật khẩu"'
+          [toggleMask]="true"
+          formControlName="rePassword"></p-password>
+        <app-message-validate name="Xác nhận" [input]='this.getControl("rePassword")'></app-message-validate>
+      </div>
+      <div>
+        <p-button label="Đăng ký" (click)="this.register()"></p-button>
+      </div>
+    </form>
+  </div>
+</div>

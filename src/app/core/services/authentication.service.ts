@@ -15,4 +15,15 @@ export class AuthenticationService {
     }
     return this.httpClient.post<LoginModel>(HostConstant.BE + HostConstant.BE_PATH_COMMON +"login", login);
   }
+
+  public register(email: string, name: string, password: string, role: string[]) {
+    const register = {
+      email: email,
+      name: name,
+      password: password,
+      role: role
+    }
+
+    return this.httpClient.post(HostConstant.BE  + HostConstant.BE_PATH_COMMON + "register", register);
+  }
 }

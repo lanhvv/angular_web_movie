@@ -1,6 +1,6 @@
 export class PathConstant {
   public static readonly LOGIN = "/authentication/login";
-  public static readonly REGISTER = "/authenticationregister";
+  public static readonly REGISTER = "/authentication/register";
   public static readonly LOGOUT = "/authentication/logout";
 
   public static readonly ROOT_ADMIN = "manager_web_movie";

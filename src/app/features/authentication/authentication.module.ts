@@ -9,6 +9,7 @@ import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import {SharedModule} from "../../shared/shared.module";
+import {ToastNotifyComponent} from "../../shared/components/toast-notify/toast-notify.component";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import {SharedModule} from "../../shared/shared.module";
     PasswordModule,
     ButtonModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class AuthenticationModule { }

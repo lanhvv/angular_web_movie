@@ -8,6 +8,12 @@ import {MessageService} from "primeng/api";
 })
 export class ToastNotifyComponent implements OnChanges{
   @Input() config !: any; // {severity, summary, detail,...}
+  // this.bodyToast = {
+  //   severity: CommonConstant.SUCCESS,
+  //   summary: "Thành công",
+  //   detail: "Thêm mới thành công"
+  // }
+
 
   constructor(private messageService: MessageService) {}
 

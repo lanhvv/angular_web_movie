@@ -61,4 +61,6 @@ export class LoginComponent implements OnInit{
         );
     }
   }
+
+  protected readonly PathConstant = PathConstant;
 }

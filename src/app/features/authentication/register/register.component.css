@@ -1,0 +1,45 @@
+.body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-login {
+  width: 25%;
+  min-height: 300px;
+  border: 0.5px solid black;
+  border-radius: 2%;
+}
+
+.form-login > h2 {
+  margin: 15px;
+  text-align: center;
+}
+
+form > div > div{
+  margin: 5px 0;
+}
+
+form > div{
+  margin: 15px 15px;
+}
+
+input[type=text] {
+  width: 100%;
+}
+
+::ng-deep .p-component, .p-component * {
+  width: 100%;
+}
+
+.register-nav {
+  text-align: center;
+  padding: 5px 0px;
+  color: #5670E9;
+  font-weight: bolder;
+}
+
+.register-nav > span {
+  cursor: pointer;
+}

@@ -101,6 +101,7 @@
 .op > li {
   list-style: none;
   padding: 10px 0;
+  cursor: pointer;
 }
 
 .op > li:hover {

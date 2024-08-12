@@ -15,7 +15,6 @@
 .form-login > h2 {
     margin: 15px;
     text-align: center;
-
 }
 
 form > div > div{
@@ -32,4 +31,15 @@ input[type=text] {
 
 ::ng-deep .p-component, .p-component * {
     width: 100%;
+}
+
+.register-nav {
+  text-align: center;
+  padding: 5px 0px;
+  color: #5670E9;
+  font-weight: bolder;
+}
+
+.register-nav > span {
+  cursor: pointer;
 }

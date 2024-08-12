@@ -21,7 +21,13 @@ export class CreateAndUpdateComponent implements OnInit{
   ) {
     this.movieService.createMovie().subscribe(
       (x: any) => {console.log("hehhe")},
-      (x: any) => {console.log(JSON.stringify(x))}
+      (a: any) => {
+        if (a.status == 0) {
+          console.log("dmm");
+        } else {
+          debugger
+        }
+      }
     );
   }
 
