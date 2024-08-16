@@ -3,11 +3,13 @@ import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest}
 import {Observable, tap} from "rxjs";
 import {JwtAuthenticationService} from "../auth/jwt-authentication.service";
 import {Router} from "@angular/router";
+import {AccountService} from "../auth/account.service";
 
 @Injectable()
 export class AddTokenInterceptor implements HttpInterceptor{
   constructor(
     private jwtAuthentication: JwtAuthenticationService,
+    private accountService: AccountService,
     private router: Router,
   ) {
   }
@@ -20,9 +22,9 @@ export class AddTokenInterceptor implements HttpInterceptor{
       .pipe(
         tap({
           error: (err: HttpErrorResponse) => {
-            debugger
             if (err.status == 401) {
               this.jwtAuthentication.clearToken();
+              this.accountService.clearAccount();
               this.router.navigate(["authentication", "login"]);
             }
           }

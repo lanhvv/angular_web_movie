@@ -29,8 +29,8 @@ input[type=text] {
     width: 100%;
 }
 
-::ng-deep .p-component, .p-component * {
-    width: 100%;
+.form-login ::ng-deep .p-component, .p-component * {
+  width: 100%;
 }
 
 .register-nav {
