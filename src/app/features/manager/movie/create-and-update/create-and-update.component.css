@@ -1,52 +1,13 @@
 .content {
-  min-height: 400px;
+  min-height: 750px;
   background-color: white;
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
 }
 
-.title {
+.content > .image {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  align-items: start ;
 }
 
-.title ::ng-deep .pi {
-  font-size: 10px;
-}
-
-::ng-deep .p-button.p-button-icon-only.p-button-rounded {
-  height: 2rem;
-}
-
-::ng-deep .p-button.p-button-icon-only {
-  width: 2rem;
-}
-
-.td-table {
-  text-align: center;
-}
-
-.op-filter-apii {
-  width: 1000px;
-  min-height: 50px;
-  padding: 15px;
-}
-
-.op-filter-apii > form {
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.op-filter-apii > form > div {
-  width: 28%;
-  padding: 5px;
-}
-
-.op-filter-apii > form ::ng-deep .p-dropdown {
-  width: 100%;
-}

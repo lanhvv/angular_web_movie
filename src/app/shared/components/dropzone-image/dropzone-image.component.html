@@ -1,0 +1,23 @@
+<div
+  [style.width]="width"
+  [style.height]="height"
+  ngx-dropzone
+  [accept]="'image/*'"
+  (change)="onSelect($event)"
+>
+  <ngx-dropzone-label>
+    <div>
+      <h2>{{title}}</h2>
+    </div>
+  </ngx-dropzone-label>
+  <ngx-dropzone-image-preview
+    [style.height]="'90% !important'"
+    [style.width]="'100% !important'"
+    ngProjectAs="ngx-dropzone-preview"
+    *ngFor="let f of files"
+    [file]="f"
+    [removable]="true"
+    (removed)="onRemove(f)"
+  >
+  </ngx-dropzone-image-preview>
+</div>

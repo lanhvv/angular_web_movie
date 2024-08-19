@@ -1,2 +1,18 @@
 <app-toast-notify [config]="this.bodyToast"></app-toast-notify>
 <h1>{{this.name}}</h1>
+<div class="content">
+  <div class="image">
+    <app-dropzone-image
+      [files]="poster"
+      title="Poster"
+      height="300px"
+      width="220px"
+    ></app-dropzone-image>
+    <app-dropzone-image
+      [files]="thumb"
+      title="Thumb"
+      height="300px"
+      width="500px"
+    ></app-dropzone-image>
+  </div>
+</div>
