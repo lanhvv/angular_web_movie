@@ -5,14 +5,74 @@
     <app-dropzone-image
       [files]="poster"
       title="Poster"
-      height="300px"
-      width="220px"
+      height="400px"
+      width="320px"
     ></app-dropzone-image>
     <app-dropzone-image
       [files]="thumb"
       title="Thumb"
-      height="300px"
-      width="500px"
+      height="400px"
+      width="750px"
     ></app-dropzone-image>
+  </div>
+  <div class="form">
+    <form [formGroup]="this.form">
+      <div>
+        <div>
+          <p>Tên phim</p>
+          <input type="text" pInputText formControlName="name" />
+        </div>
+        <div>
+          <p>Tên phim gốc</p>
+          <input type="text" pInputText formControlName="originName" />
+        </div>
+        <div>
+          <p>Tập phim hiện tại</p>
+          <p-inputNumber inputId="integeronly" formControlName="episodeCurrent"></p-inputNumber>
+        </div>
+        <div>
+          <p>Tổng tập phim</p>
+          <p-inputNumber inputId="integeronly" formControlName="episodeTotal"></p-inputNumber>
+        </div>
+        <div>
+          <p>Độ dài tập phim</p>
+          <p-calendar formControlName="time" [timeOnly]="true" [hourFormat]="'24'" inputId="timeonly"></p-calendar>
+        </div>
+        <div>
+          <p>Năm sản xuất</p>
+          <p-calendar formControlName="year" view="year" dateFormat="yy"></p-calendar>
+        </div>
+        <div>
+          <p>Mô tả</p>
+          <textarea rows="5" cols="30" pInputTextarea formControlName="content" [autoResize]="true"></textarea>
+        </div>
+      </div>
+      <div>
+        <div>
+          <p>Lang</p>
+          <p-dropdown formControlName="lang" [showClear]="true"></p-dropdown>
+        </div>
+        <div>
+          <p>Diễn viên</p>
+          <p-multiSelect formControlName="actors"></p-multiSelect>
+        </div>
+        <div>
+          <p>Thể loại</p>
+          <p-multiSelect formControlName="category"></p-multiSelect>
+        </div>
+        <div>
+          <p>Loại phim</p>
+          <p-dropdown formControlName="typeMovie" [showClear]="true"></p-dropdown>
+        </div>
+        <div>
+          <p>Quốc gia</p>
+          <p-multiSelect formControlName="country"></p-multiSelect>
+        </div>
+        <div>
+          <p>Quay phim</p>
+          <p-multiSelect formControlName="director"></p-multiSelect>
+        </div>
+      </div>
+    </form>
   </div>
 </div>

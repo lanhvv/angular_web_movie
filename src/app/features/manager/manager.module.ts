@@ -19,7 +19,9 @@ import { CalendarModule } from 'primeng/calendar';
 import {ReactiveFormsModule} from "@angular/forms";
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
-
+import { InputNumberModule } from 'primeng/inputnumber';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { MultiSelectModule } from 'primeng/multiselect';
 @NgModule({
   declarations: [
     ManagerComponent,
@@ -43,6 +45,9 @@ import { InputTextModule } from 'primeng/inputtext';
     ReactiveFormsModule,
     DropdownModule,
     InputTextModule,
+    InputNumberModule,
+    InputTextareaModule,
+    MultiSelectModule
   ],
   providers: [
 

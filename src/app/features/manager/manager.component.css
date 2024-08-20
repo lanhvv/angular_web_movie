@@ -46,11 +46,20 @@
 .content {
   width: 80%;
   height: 100%;
+  overflow: auto;
+  position: relative;
+  padding: 80px 0 0 0;
 }
 
 .header {
   height: 80px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   background-color: rgba(255, 255, 255, 0.99);
   z-index: 999;
 }
@@ -60,7 +69,6 @@
 }
 
 .header > .info-user {
-  float: right;
   width: 10%;
   height: 70%;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -112,5 +120,6 @@
   background-color: #f8f8f8;
   padding: 15px;
 }
+
 
 

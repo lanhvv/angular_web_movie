@@ -8,6 +8,30 @@
 
 .content > .image {
   display: flex;
-  align-items: start ;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
+.content .form form{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.form form div {
+  width: 30%;
+}
+
+.form form div > div {
+  width: 100%;
+}
+
+.form form div ::ng-deep .p-dropdown,
+.form form div ::ng-deep .p-multiselect,
+.form form div ::ng-deep .p-inputtext,
+.form form div ::ng-deep p-inputnumber,
+.form form div ::ng-deep .p-inputnumber,
+.form form div ::ng-deep .p-calendar
+{
+  width: 100%;
+}
